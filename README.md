@@ -1,6 +1,7 @@
 # OOPL-project
 Freelance Job System is a Java-based desktop application developed using Object-Oriented Programming principles. The system connects clients and freelancers through an interactive hiring platform where clients can post jobs, freelancers can submit bids, negotiate offers, and manage projects. It features role-based access, file-based data storage, Java Swing GUI, and dynamic dashboards that provide real-time insights into jobs, bids, and hiring progress.
 <br>
+
 Key Features & Workflows Demonstrated:
 1)​ Live Job Posting &  Bidding: Clients can instantly publish new jobs, and Freelancers can view and place initial price/duration bids.
 
