@@ -7,6 +7,7 @@ public class Job {
     private String clientName;   
     private boolean isCompleted;
     private String deadline;
+    
 
     public Job(int jobId, String title, String description, double budget, String clientName , String deadline) {
 
