@@ -105,10 +105,10 @@ public class profile extends javax.swing.JFrame {
     // Make window bigger so nothing gets cut off
 this.setSize(700, 600);
 
-// Make title fit fully
+
 jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-// Make stats area taller so more data shows without scrolling
+
 jScrollPane2.setPreferredSize(new java.awt.Dimension(280, 200));
 // Add this in setupCommonUI() for neat column alignment
 jTextArea2.setFont(new java.awt.Font("Courier New", java.awt.Font.PLAIN, 12));
@@ -224,7 +224,7 @@ jTextArea2.setFont(new java.awt.Font("Courier New", java.awt.Font.PLAIN, 12));
 
         int successRate = (totalBids > 0) ? (hiredCount * 100 / totalBids) : 0;
 
-        // FILL TEXT AREA WITH STATS + APPLIED JOBS
+      
         jTextArea2.setText("");
         jTextArea2.append("===== MY STATISTICS =====\n");
         jTextArea2.append("Total Bids Placed : " + totalBids + "\n");
@@ -234,7 +234,6 @@ jTextArea2.setFont(new java.awt.Font("Courier New", java.awt.Font.PLAIN, 12));
         jTextArea2.append("Success Rate      : " + successRate + "%\n");
         jTextArea2.append("\n===== APPLIED JOBS =====\n");
 
-        // LOAD APPLIED JOBS FROM applied_jobs.txt
         java.io.File appliedFile = new java.io.File("applied_jobs.txt");
 if (appliedFile.exists()) {
     try (java.util.Scanner scanner = new java.util.Scanner(appliedFile)) {
@@ -245,14 +244,12 @@ if (appliedFile.exists()) {
             if (line.startsWith(freelancer.getemail())) {
                 String jobInfo = line.substring(freelancer.getemail().length() + 1);
 
-                // Extract job ID from jobInfo string
                 String jobId = "";
                 if (jobInfo.contains("Job ID:")) {
                     jobId = jobInfo.substring(jobInfo.indexOf("Job ID:") + 7,
                             jobInfo.contains("|") ? jobInfo.indexOf("|") : jobInfo.length()).trim();
                 }
 
-                // Look up real status from bids.txt
                 String realStatus = "Applied";
                 java.io.File bidsFile2 = new java.io.File("bids.txt");
                 if (bidsFile2.exists() && !jobId.isEmpty()) {
@@ -305,7 +302,6 @@ if (appliedFile.exists()) {
         int closedJobs = 0;
         int totalBidsReceived = 0;
 
-        // COUNT STATS int totalJobs = 0, openJobs = 0, closedJobs = 0, totalBidsReceived = 0;
 
 java.io.File jobsFile = new java.io.File("Jobs.txt");
 if (jobsFile.exists()) {
@@ -345,7 +341,6 @@ if (bidsFile.exists()) {
 }
 
 
-        // FILL TEXT AREA WITH STATS + POSTED JOBS
         jTextArea2.setText("");
         jTextArea2.append("===== MY STATISTICS =====\n");
         jTextArea2.append("Total Jobs Posted  : " + totalJobs + "\n");
@@ -354,7 +349,7 @@ if (bidsFile.exists()) {
         jTextArea2.append("Total Bids Received: " + totalBidsReceived + "\n");
         jTextArea2.append("\n===== POSTED JOBS =====\n");
 
-// READ FROM FILE instead of RAM
+
 java.io.File jobsFile2 = new java.io.File("Jobs.txt");
 if (jobsFile2.exists()) {
     try (java.util.Scanner sc = new java.util.Scanner(jobsFile2)) {
@@ -537,13 +532,11 @@ if (jobsFile2.exists()) {
         String newName = jTextField1.getText().trim();
         String newDynamic = txt_skill.getText().trim();
 
-    // 1. Khali fields check karna
     if (newName.isEmpty() || newDynamic.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Fields cannot be empty!");
         return;
     }
 
-    // 2. FILE ME SAVE NAHI KARNA -> Sirf objects (RAM) ko update karna hai
     if (userRole.equals("Freelancer") && freelancer != null) {
         
         freelancer.setname(newName);
@@ -567,7 +560,7 @@ if (jobsFile2.exists()) {
 
     fm.updateFreelancerProfile(freelancer);
 
-    // 3. User ko success message dikhana
+
     javax.swing.JOptionPane.showMessageDialog(this, "Profile updated" + "");
         
     }                                          
