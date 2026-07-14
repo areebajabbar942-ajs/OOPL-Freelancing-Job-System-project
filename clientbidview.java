@@ -66,7 +66,7 @@ jScrollPane1.setPreferredSize(new java.awt.Dimension(1240, 350));
        counter_btn.setForeground(java.awt.Color.WHITE);
        counter_btn.setFocusPainted(false);
 
-// Also style Hire button same way
+//style Hire button same way
        hire_txt.setBackground(terracotta);
        hire_txt.setForeground(java.awt.Color.WHITE);
        hire_txt.setFocusPainted(false);
@@ -129,7 +129,6 @@ jScrollPane1.setPreferredSize(new java.awt.Dimension(1240, 350));
         lbl_clientemail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         topPanel.add(lbl_clientemail, tgbc);
 
-        // Middle: table — height = header(30) + 4 rows(30each) = 150 + a little padding
         jScrollPane1.setPreferredSize(new java.awt.Dimension(860, 250));
         table_bids.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
 
@@ -445,21 +444,21 @@ jScrollPane1.setPreferredSize(new java.awt.Dimension(1240, 350));
             return;
         }
         
-        // Step 1: Input custom counter price
+        //Input custom counter price
         String counterAmount = javax.swing.JOptionPane.showInputDialog(this, 
                 "Enter your counter offer amount ($) for " + freelancerEmail + ":", 
                 "Bargain Budget", javax.swing.JOptionPane.QUESTION_MESSAGE);
                 
         if (counterAmount == null || counterAmount.trim().isEmpty()) return; // User cancelled
         
-        // Step 2: Input custom counter duration
+        //Input custom counter duration
         String counterDuration = javax.swing.JOptionPane.showInputDialog(this, 
                 "Enter proposed duration (e.g., '2 weeks' or '10 days'):", 
                 "Bargain Duration", javax.swing.JOptionPane.QUESTION_MESSAGE);
                 
         if (counterDuration == null || counterDuration.trim().isEmpty()) return; // User cancelled
         
-        // Step 3: File Update 
+        //File Update 
         updateBidStatusInFile(jobId, freelancerEmail, counterAmount.trim(), counterDuration.trim(), "Counter (By Client)");
     }                                           
 
